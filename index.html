@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <title>Weatherify</title>
+</head>
+
+<body>
+    <section class="bgcolor">
+        <nav class="title">
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" id="input-box" class="input-search" placeholder="Enter city name...">
+            </div>
+        </nav>
+        <section class="container">
+            <div class="left-half">
+                <div class="weather-body">
+                    <div class="location-details">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-geo" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
+                        </svg>
+                        <div class="city" id="city"></div>
+                        <div class="date" id="date"></div>
+                    </div>
+
+                    <div class="weather-status">
+                        <div class="temp" id="temp"></div>
+                        <div class="min-max" id="min-max"></div>
+                        <!-- <div class="min-max"><span id="sunrise"></span></div> -->
+                        <div class="weather" id="weather"></div>
+                        <div><img id="img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-half">
+                <div class="row">
+                    <div class="cardd">
+                            <div class="card-body">
+                                <p class="mwc">
+                                    Feels Like<br>
+                                    <span class="mw" id="feels"></span>
+                                </p>
+                            </div>
+                    </div>
+                    <div class="cardd">
+                        <div class="card-headerr">
+                        </div>
+                        <div class="card-body">
+                            <p class="mwc">
+                                Humidity<br>
+                                <span class="mw"  id="humid"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cardd">
+                        <div class="card-headerr">
+                        </div>
+                        <div class="card-body">
+                            <p class="mwc">
+                                Wind Speed
+                                <span class="mw"  id="speed"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cardd">
+                        <div class="card-headerr">
+                        </div>
+                        <div class="card-body">
+                            <p class="mwc">
+                                Wind Gust<br>
+                                <span  class="mw"  id="wg"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cardd">
+                        <div class="card-headerr">
+                        </div>
+                        <div class="card-body">
+                            <p class="mwc">
+                                Visibility<br>
+                                <span class="mw"  id="visibil"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cardd">
+                        <div class="card-headerr">
+                        </div>
+                        <div class="card-body">
+                            <p class="mwc">
+                                Air pressure
+                                <span class="mw"  id="pressure"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="report">
+            <div id="weatherContainer">
+                <h1 id="future">Future Forcaste</h1>
+                <div id="iconsContainer">
+                    <div class="icons">
+                        <p class="forweather" id="day1"></p>
+                        <div class="image"><img src="dots.png" class="imgClass" id="img1"></div>
+                        <p class="minValues" id="day1Min">Loading...</p>
+                        <p class="maxValues" id="day1Max">Loading...</p>
+                    </div>
+                    <div class="icons">
+                        <p class="forweather" id="day2"></p>
+                        <div class="image"><img src="dots.png" class="imgClass" id="img2"></div>
+                        <p class="minValues" id="day2Min">Loading...</p>
+                        <p class="maxValues" id="day2Max">Loading...</p>
+                    </div>
+                    <div class="icons">
+                        <p class="forweather" id="day3"></p>
+                        <div class="image"><img src="dots.png" class="imgClass" id="img3"></div>
+                        <p class="minValues" id="day3Min">Loading...</p>
+                        <p class="maxValues" id="day3Max">Loading...</p>
+                    </div>
+                    <div class="icons">
+                        <p class="forweather" id="day4"></p>
+                        <div class="image"><img src="dots.png" class="imgClass" id="img4"></div>
+                        <p class="minValues" id="day4Min">Loading...</p>
+                        <p class="maxValues" id="day4Max">Loading...</p>
+                    </div>
+                    <div class="icons">
+                        <p class="forweather" id="day5"></p>
+                        <div class="image"><img src="dots.png" class="imgClass" id="img5"></div>
+                        <p class="minValues" id="day5Min">Loading...</p>
+                        <p class="maxValues" id="day5Max">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    </section>
+</body>
+
+</html>
